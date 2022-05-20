@@ -80,6 +80,6 @@ footer{
    width: 50%;
    height: 25px;
 }
-#erreurLogin{
+#erreurLogin,#erreurEmail,#erreurPassword,#erreurVpass{
     color: red;
 }

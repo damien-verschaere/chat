@@ -10,7 +10,7 @@
         <p id="erreurPassword"></p>
         <input type="password" id="vPassword" placeholder="verification password">
         <p id="erreurVpass"></p>
-        <input type="submit" value="S'inscrire">
+        <input type="submit" value="S'inscrire" id="validInscription">
         
     </form>
 

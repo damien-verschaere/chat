@@ -1,6 +1,6 @@
 <?php
 
-
+require_once("Bdd.php");
 class User extends Bdd{
 
 public $login;
@@ -26,11 +26,13 @@ public function Inscription($login,$password,$email){
 }
 public function verifLogin(){
     $login =$_POST['login'];
-    $verificationLogin = $this->db->prepare("SELECT * FROM user where login= :login");
+    $verificationLogin = $this->db->prepare("SELECT login FROM user where login= :login");
     $verificationLogin->execute(array(
         ':login'=>$login
     ));
     $verification = $verificationLogin->rowCount();
-    return $verification;
+    echo $verification;
 }
 }
+$user = new User;
+@ $user -> verifLogin();
