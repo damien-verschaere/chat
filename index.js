@@ -7,11 +7,7 @@ document.addEventListener("DOMContentLoaded", () => {
     let regexUpperCase = /[A-Z]+/;
     let regexMail = /.+\@.+\..+/;
     let formData = new FormData
-    let inscription = document.getElementById("validInscription").disabled = true
-
-    console.log(inscription)
-
-
+    
     function verifLogin() {
         let erreurLogin = document.querySelector("#erreurLogin")
         login.addEventListener('keyup', () => {
@@ -92,7 +88,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     function verifAllOk() {
-        if (verifLogin() == true && verifEmail() == true && verifPassword() == true && verifPassVpass() == true) {
+        if (verifLogin() == true , verifEmail() == true , verifPassword() == true , verifPassVpass() == true) {
         vpass.addEventListener('blur', () => {
             console.log("rvent L97")
             

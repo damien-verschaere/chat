@@ -18,6 +18,7 @@ main{
 .logoaccueil{
     display: flex;
     justify-content: center;
+    margin-top: 10%;
 }
 .dropbutton{
     background-color: #2a475e;
@@ -61,12 +62,12 @@ footer{
     background-color: #2a475e;
 }
 /* ---------------------------------------------------------------formulaire inscription et connexion------------------------------------------- */
-#inscription{
+#inscription,#connexion{
     display: flex;
     justify-content: center;
     margin-top: 10%;
 }
-#formInscription{
+#formInscription,#formConnexion{
     background-color:#2a475e ;
     display: flex;
     flex-direction: column;
@@ -75,7 +76,7 @@ footer{
     width: 30%;
     height: 40vh;
 }
-#formInscription input{
+#formInscription input,#formConnexion input{
    margin-top: 3%;
    width: 50%;
    height: 25px;

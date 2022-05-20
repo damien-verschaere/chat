@@ -15,8 +15,8 @@
             <button class="dropbutton">MENU</button>
             <div class="container-button">
                 <a href="index.php">Accueil</a>
-                <a href="views/Inscription.php">Inscription</a>
-                <a href="">Parcs</a>
+                <a href="views/inscription.php">Inscription</a>
+                <a href="views/connexion.php">Connexion</a>
                 <a href="">Plages</a>
                 <a href="">Musées</a>
                 <a href="">Randonnées</a>

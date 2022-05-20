@@ -16,12 +16,8 @@
             <button class="dropbutton">MENU</button>
             <div class="container-button">
                 <a href="../index.php">Accueil</a>
-                <a href="">Inscription</a>
-                <a href="">Parcs</a>
-                <a href="">Plages</a>
-                <a href="">Musées</a>
-                <a href="">Randonnées</a>
-                <a href="">Nous Contacter</a>
+                <a href="inscription.php">Inscription</a>
+                <a href="connexion.php">Connexion</a>
             </div>
         </nav>
     </header>
