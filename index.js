@@ -77,7 +77,7 @@ document.addEventListener("DOMContentLoaded", () => {
         let verifpass = document.getElementById("erreurVpass")
         vpass.addEventListener('keyup', () => {
             if (vpass.value != password.value) {
-                verifpass.innerHTML = "X les mots de passes de correspondent pas "
+                verifpass.innerHTML = "X les mots de passes de correspondent pas"
             }
             else {
                 verifpass.innerHTML = ""

@@ -18,7 +18,7 @@ main{
 .logoaccueil{
     display: flex;
     justify-content: center;
-    margin-top: 10%;
+    margin-top: -8%;
 }
 .dropbutton{
     background-color: #2a475e;
@@ -54,7 +54,8 @@ main{
     display: block;
 }
 img{
-    width: 10%;
+    width: 70%;
+    height: 90%px;
 }
 footer{
     height: 120px;
@@ -83,4 +84,43 @@ footer{
 }
 #erreurLogin,#erreurEmail,#erreurPassword,#erreurVpass{
     color: red;
+}
+.formchat{
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+}
+.formchat #sendChat{
+    width: 87.5%;
+}
+/* ---------------------------------------------------------- CHAT----------------------------------------------------------------- */
+#mainChat{
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+#chat{
+    height: 80vh;
+    width: 70%;
+    background-color: #c7d5e0;
+   
+}
+#userChat{
+    width: 80%;
+    margin-left:10%;
+    display: flex;
+    justify-content: center;
+}
+#textChat{
+    height: 50px;
+    width: 87.5%;
+    resize: none;
+}
+
+p{
+    margin-top: 1%;
+    color: black;
 }

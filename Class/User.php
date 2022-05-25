@@ -24,14 +24,14 @@ public function inscription($login,$password,$email){
         ':mail'=>$email
     ));
 }
-public function verifLogin(){
-    $login =$_POST['logi'];
-    $verificationLogin = $this->db->prepare("SELECT login FROM user where login= :logi");
+public function verifLogin($login){
+    $verificationLogin = $this->db->prepare("SELECT * FROM user where login= :login");
     $verificationLogin->execute(array(
-        ':logi'=>$login
+        ':login'=>$login
     ));
     $verification = $verificationLogin->rowCount();
-   echo json_encode($verification);
+    // var_dump($verification);
+    return $verification;
 }
 public function verifInscription(){
     if (isset($_POST['valider'])) {
@@ -49,28 +49,38 @@ public function verifInscription(){
         }
     }
 }
-public function connexion($login,$password){
-    $select = $this->db->prepare("SELECT * FROM user WHERE login = :login AND password=:password");
-    $select->execute(array(
-        ':login'=>$login,
-        ':password'=>$password
+public function connexion($login){
+    $connexion = $this->db->prepare("SELECT * FROM user WHERE login = :login ");
+    $connexion ->execute(array(
+        ":login"     => $login,
+     
     ));
-    $result = $select ->fetch(PDO::FETCH_ASSOC);
-    return $result;
-
+    $user = $connexion->fetch(PDO::FETCH_ASSOC);
+    return $user;
 }
-public function verifConnexion(){
+public function connexionUser(){
     if (isset($_POST['covalid'])) {
-        if (empty($_POST['log']) && empty($_POST['mdp']) ) {
-            echo "veuillez remplir les champs";
+        if (empty($_POST['login']) || empty($_POST['password'])) {
+            echo "veuillez remplir tous les champs";
         }
-        $user = new User;
-        $client=$user->verifLogin($_POST['logi']);
-        if ($client == 0) {
-            echo "le login n'existe pas ";
+        $model = new User;
+        $verif = $model->verifLogin($_POST['login']);
+        if ($verif == 0) {
+            echo "aucun utilisateur avec ce login";
+            
         }
-        else{
-
+        else {
+            $user = new User;
+            $connexionUser = $user->connexion($_POST['login']);
+            if(password_verify(htmlspecialchars($_POST['password'],ENT_QUOTES,"ISO-8859-1"),$connexionUser['password'])) {
+                session_start();
+                $_SESSION['user'] = $connexionUser ; 
+                header('location: ../index.php');
+            }
+        
+            else{
+                echo "login ou mdp incorrect";
+            }
         }
     }
 }
