@@ -6,7 +6,7 @@ let chatView   = document.getElementById('chat')
 let userLogin  = document.getElementById('nameUser')
 let idUser     = document.getElementById("idUser").value
 let formdata   = new FormData
-
+let tabdata = []
 
 
 
@@ -23,10 +23,11 @@ function getMessage(){
         fetch("../Class/Message.php",{
             method:"POST",
             body:formdata
-        }).then(reponse=>reponse.json()).then(rep=>console.log(rep))
-       
+        }).then(reponse=>reponse.json()).then(rep=>tabdata.push(rep))
+        console.log(tabdata.length)
         textarea.value=""
     })
+    
 }
 
 function afficheMessage(){
@@ -43,8 +44,9 @@ function afficheMessage(){
 
  
 }
-console.log()
-   setInterval(afficheMessage,1000)
+
+
+   window.setInterval(afficheMessage,1000)
     // afficheMessage()
    getMessage() 
     

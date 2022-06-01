@@ -106,7 +106,7 @@ footer{
     height: 80vh;
     width: 70%;
     background-color: #c7d5e0;
-   
+    overflow:scroll;
 }
 #userChat{
     width: 80%;
