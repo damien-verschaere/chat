@@ -26,22 +26,32 @@ document.addEventListener("DOMContentLoaded", () => {
 
     }
     function verifBdd() {
-        let result;
+        let result
         let erreurLogin = document.querySelector("#erreurLogin")
-        login.addEventListener('blur', () => {
+        login.addEventListener('keyup', () => {
             log = login.value
             console.log(log)
             formData.append("login", encodeURIComponent(log))
             fetch("../Class/User.php", {
                 method: "POST",
                 body: formData,
-            }).then(reponse => reponse.json()).then(rep => result = rep)
-            if (result != 0) {
-                erreurLogin.innerHTML = "X le login existe deja"
-            }
-            else {
-                erreurLogin.innerHTML = ""
-            }
+            }).then(reponse => reponse.json())
+            .then((rep)=> result = rep)
+            .then(function(result){
+                if (result == 1) {
+                    console.log("test if 40  result BDD")
+                    erreurLogin.innerHTML = "X Login deja utilisé"
+                    erreurLogin.style.color = "red"
+                    document.getElementById("login").style.border = "thick solid red" 
+                }
+                else{
+                    erreurLogin.innerHTML = "Login OK"
+                    erreurLogin.style.color = "green"
+                    document.getElementById("login").style.border = "thick solid green"
+                }
+            })
+            // console.log(reponse)
+     
         })
 
 
@@ -78,6 +88,7 @@ document.addEventListener("DOMContentLoaded", () => {
         vpass.addEventListener('keyup', () => {
             if (vpass.value != password.value) {
                 verifpass.innerHTML = "X les mots de passes de correspondent pas"
+                document.getElementById("vPassword").style.border = "thick solid red"
             }
             else {
                 verifpass.innerHTML = ""
@@ -104,10 +115,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
-    verifAllOk()
+    // verifAllOk()
     verifBdd()
-    // verifPassVpass()
-    // verifPassword()
-    // verifLogin()
-    // verifEmail()
+    verifPassVpass()
+    verifPassword()
+    verifLogin()
+    verifEmail()
 })
